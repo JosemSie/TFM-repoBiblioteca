@@ -1,3 +1,4 @@
+package SecureSession;
 
 public/* abstract*/ class SecSession {
 	private String lastURI;
