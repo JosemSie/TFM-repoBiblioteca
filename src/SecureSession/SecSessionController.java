@@ -12,7 +12,11 @@ public class SecSessionController{
 	public SecSessionController() {
 	        map = new HashMap<String,ArrayList<String>>();
 	}
-    public boolean isPossible(String newUri, SecSession actualSession){
+	public void setMap(HashMap<String,ArrayList<String>> pMap) {
+	    	this.map = pMap;
+	    	
+	} 
+	public boolean isPossible(String newUri, SecSession actualSession){
         boolean sol = false;
         
         for(String checkSession : map.get(actualSession.getLastURI())){
@@ -34,5 +38,30 @@ public class SecSessionController{
             map.put(splitText[0], aux);
         }
         b.close();
+    }
+    public void addRutes(String id, ArrayList<String> rutes) {
+    	if(map.get(id) != null) {
+    		for(String rute : rutes) {
+    			map.get(id).add(rute);
+    		}
+    	}
+    	else {
+    		map.put(id,rutes);
+    	}
+    }
+    public void addRute(String id, String rute) {
+    	if(map.get(id) != null) {
+    		map.get(id).add(rute);
+    	}
+    }
+    public void removeRute(String id, String rute) {
+    	if(map.get(id) != null) {
+    		map.get(id).remove(rute);
+    	}    
+    }
+    public void removeAllRutes(String id) {
+    	if(map.get(id) != null) {
+    		map.remove(id);
+    	}
     }
 }
