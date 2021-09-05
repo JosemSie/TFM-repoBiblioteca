@@ -19,6 +19,5 @@ public/* abstract*/ class SecSession {
     public Object getId(){
         return this.id;
     }
-    //public abstract boolean isEqual(SecSession p1);
 
 }
